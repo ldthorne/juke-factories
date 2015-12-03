@@ -7,6 +7,8 @@
 	<link href="/style.css" rel="stylesheet" />
   <script src="/angular/angular.js" defer></script>
   <script src="/js/module.js" defer></script>
+  <script src="/js/factories/stats.js" defer></script>
+  <script src="/js/factories/player.js" defer></script>
   <script src="/js/controllers/album.js" defer></script>
   <script src="/js/controllers/player.js" defer></script>
 </head>
@@ -27,7 +29,7 @@
 		<div class="col-xs-10">
       <div class="album" ng-controller="AlbumCtrl">
           <p>
-              <h3>{{ album.name }}</h3>
+              <h3>{{ album.name }}</h3> <h4>{{album.totalTime}}</h4>
               <img ng-src="{{ album.imageUrl }}" class="img-thumbnail">
           </p>
           <table class='table'>
