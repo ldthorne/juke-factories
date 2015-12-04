@@ -67,11 +67,18 @@ app.factory("PlayerFactory", function($http, StatsFactory) {
         //     idx = mod((idx + (val || 1)), album.songs.length);
         // },
         next: function() {
-        	console.log(currentSong)
-            player.play(null, currentAlbum.songs[currentSong.trackNum + 1]);
+            if (currentSong.trackNum + 1 === currentAlbum.songs.length) {
+                player.play(null, currentAlbum.songs[0]);
+            } else {
+                player.play(null, currentAlbum.songs[currentSong.trackNum + 1]);
+            }
         },
         prev: function() {
-            player.play(null, currentAlbum.songs[currentSong.trackNum - 1]);
+            if (currentSong.trackNum === 0) {
+                player.play(null, currentAlbum.songs[currentAlbum.songs.length -1]);
+            } else {
+                player.play(null, currentAlbum.songs[currentSong.trackNum - 1]);
+            }
         }
 
     };
